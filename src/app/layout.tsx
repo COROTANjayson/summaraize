@@ -2,6 +2,7 @@ import type { Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 
 import "./globals.css";
+import "./nprogress.css";
 
 import Providers from "@/components/general/Providers";
 import { cn, constructMetadata } from "@/lib/utils";
@@ -9,6 +10,7 @@ import { cn, constructMetadata } from "@/lib/utils";
 import "react-loading-skeleton/dist/skeleton.css";
 import "simplebar-react/dist/simplebar.min.css";
 
+import NavigationProgress from "@/components/general/NavigationProgress";
 import Navbar from "@/components/nav/Navbar";
 import { Toaster } from "@/components/ui/sonner";
 
@@ -36,6 +38,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={cn(`${geistSans.variable} ${geistMono.variable} antialiased`, "min-h-screen grainy")}>
         <Providers>
+          <NavigationProgress />
           <Toaster />
           <Navbar />
           {children}
