@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import type { Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 
@@ -38,7 +39,9 @@ export default function RootLayout({
     <html lang="en">
       <body className={cn(`${geistSans.variable} ${geistMono.variable} antialiased`, "min-h-screen grainy")}>
         <Providers>
-          <NavigationProgress />
+          <Suspense fallback={null}>
+            <NavigationProgress />
+          </Suspense>
           <Toaster />
           <Navbar />
           {children}
